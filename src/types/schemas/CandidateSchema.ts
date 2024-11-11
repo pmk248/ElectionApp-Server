@@ -19,6 +19,7 @@ const candidateSchema = new Schema<candidateDocument>({
     },
     color: {
         type     : String,
+        enum     : ['red', 'blue', 'yellow'],
         required : true
     }
 }, { timestamps: true })
