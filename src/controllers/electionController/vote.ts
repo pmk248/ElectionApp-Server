@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AppResError } from "../../types/extensions/appResError";
+import { AppResError } from "../../types/extensions/app.res.error";
 
 export const vote = async (req: Request, res: Response) => {
     try {

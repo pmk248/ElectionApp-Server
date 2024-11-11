@@ -6,7 +6,8 @@ interface userDocument extends IUser, Document {}
 const userSchema = new Schema<userDocument>({
     username: {
         type     : String,
-        required : true
+        required : true,
+        unique   : true
     },
     password: {
         type     : String,
