@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { AppResError } from "../../types/extensions/appResError";
+import { registerDTO } from "../../types/DTOs/authDTOs";
 
-export const register = async (req: Request, res: Response) => {
+export const register = async (req: Request<any, any, registerDTO>, res: Response) => {
     try {
         
     } catch(err) {
