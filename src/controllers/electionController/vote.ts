@@ -6,6 +6,7 @@ import { Candidate } from "../../types/schemas/CandidateSchema";
 
 export const vote = async (req: Request<any, any, voteDTO>, res: Response) => {
     try {
+        console.log(req.body);
         const id = req.token!.id;
         const user = await User.findById(id);
         const candidate = await Candidate.findOne({ name: req.body.candidate });

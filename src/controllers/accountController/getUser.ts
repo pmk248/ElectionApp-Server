@@ -5,7 +5,7 @@ import { User } from "../../types/schemas/UserSchema";
 
 export const getUser = async (req: Request, res: Response) => {
     try {
-        const user = await User.findById(req.token!.id)
+        const user = await User.findById(req.token!.id).select('-password').populate('votedFor').exec();
         res.json(user);
     } catch(err) {
         const error = err as AppResError;

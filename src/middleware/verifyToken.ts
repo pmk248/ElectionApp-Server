@@ -7,7 +7,7 @@ import { IToken } from "../types/models/IToken";
 
 export const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = req.cookies.token;
+        const token = req.header("Authorization");
         if (!token) throw new AppResError(401, "Login first");
         req.token = jwt.verify(token, process.env.SECRET_KEY!) as IToken;
         next()

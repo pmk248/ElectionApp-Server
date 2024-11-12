@@ -17,8 +17,8 @@ export const login = async (req: Request<any, any, loginDTO>, res: Response) => 
         const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY!, {
             expiresIn: "4h"
         });
-        res.cookie("token", token);
-        res.status(200).send(`Welcome back ${user.username}`)
+        res.setHeader("Authorization", token);
+        res.status(200).json({ token });
     } catch(err) {
         const error = err as AppResError;
         res.status(error.statusCode || 500).send(error.message);
