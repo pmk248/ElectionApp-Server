@@ -22,6 +22,6 @@ const candidateSchema = new Schema<candidateDocument>({
         enum     : ['red', 'blue', 'yellow'],
         required : true
     }
-}, { timestamps: true })
+});
 
 export const Candidate = model('Candidate', candidateSchema)

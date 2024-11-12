@@ -1,10 +1,11 @@
-import express, { Router } from "express";
-import { candidates } from "../controllers/electionController/candidates";
+import { Router } from "express";
 import { vote } from "../controllers/electionController/vote";
+import { getAllCandidates } from "../controllers/electionController/getCandidates";
+import { verifyToken } from "../middleware/verifyToken"
 
 const router = Router();
 
-router.get("/", candidates);
-router.post("/vote", vote);
+router.get("/", getAllCandidates)
+router.post("/vote", verifyToken, vote);
 
 export default router;

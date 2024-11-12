@@ -1,9 +1,11 @@
+/// <reference path="../types/extensions/app.req.d.ts"/>
+
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { AppResError } from "../types/extensions/app.res.error";
 import { IToken } from "../types/models/IToken";
 
-export const verify = async (req: Request, res: Response, next: NextFunction) => {
+export const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const token = req.cookies.token;
         if (!token) throw new AppResError(401, "Login first");
